@@ -20,6 +20,7 @@ print(values)
 print(type(values))
 
 x, y, *z = values
+# * sayesinde kalan elemanlar z ye gider
 
 print(x, y, z)
 print(x, y, z[1])

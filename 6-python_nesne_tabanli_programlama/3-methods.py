@@ -36,6 +36,7 @@ class Circle:
 
     def __init__(self, yaricap=1):
         self.yaricap = yaricap
+    #__ __ olması override anlamına gelir
 
     # Methods
     def cevre_hesapla(self):

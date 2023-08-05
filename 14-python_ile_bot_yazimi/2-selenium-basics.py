@@ -9,14 +9,14 @@ driver.get(url)   # girdiğimiz url ziyaret eder
 time.sleep(2)    # url de 2 sn durur
 driver.maximize_window()   # yüklendikten 2 sn sonra tam ekran olur
 driver.save_screenshot("github.com-homepage.png")
-# Açtığı sayfanın resmini çeker
+# Açtığı sayfanın ekran görüntüsü alır
 
 url = "http://github.com/EsraTosun"
 driver.get(url)
 
 print(driver.title)
 
-if "EsraTosun" in driver.title:
+if "EsraTosun" in driver.title: 
      driver.save_screenshot("github-EsraTosun.png")
 
 time.sleep(2)

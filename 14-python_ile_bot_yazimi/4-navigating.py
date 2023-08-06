@@ -16,7 +16,7 @@ time.sleep(2)
 searchInput.send_keys(Keys.ENTER)
 time.sleep(2)
 # result = driver.page_source
-result = driver.find_elements_by_css_selector(".repo-list-item h3 a")
+result = driver.find_elements(By.CSS_SELECTOR,".repo-list-item h3 a")
 
 for element in result:
     print(element.text)

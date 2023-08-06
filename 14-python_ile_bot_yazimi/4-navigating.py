@@ -9,7 +9,7 @@ url ="http://github.com"
 driver.get(url)
 
 
-searchInput = driver.find_element(By.XPATH ,"/html/body/div[1]/div[1]/header/div/div[2]/div/div/qbsearch-input/div[1]/div/modal-dialog/div/div/div/form/query-builder/div[1]/div[1]/div/div[2]/input")
+searchInput = driver.find_element(By.XPATH ,"//*[@id='query-builder-test']")
 time.sleep(1)
 searchInput.send_keys("python")
 time.sleep(2)

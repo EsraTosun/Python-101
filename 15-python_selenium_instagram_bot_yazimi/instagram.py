@@ -4,6 +4,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By   # sayfada istediğimiz bölmü bulmamızı sağlar
 import time
 
+
+
 class Instagram:
     def __init__(self,username,password):
         self.browser = webdriver.Chrome()
@@ -102,3 +104,5 @@ instgrm.getFollowers(50)
 # for user in list:
 #     instgrm.followUser(user)
 #     time.sleep(3)
+
+input()

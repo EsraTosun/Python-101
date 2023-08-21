@@ -3,9 +3,9 @@ import pandas as pd
 df = pd.read_csv("datasets/imdb.csv")
 
 # 1- Dosyada hakkındaki bilgiler.
-result = df      # özet bilgileri verir
-result = df.columns     # tüm column bilgileri getirir
-result = df.info     
+result = df
+result = df.columns
+result = df.info
 
 # 2- ilk 5 kaydı gösterin
 result = df.head()

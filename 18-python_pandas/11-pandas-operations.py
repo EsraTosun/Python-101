@@ -15,14 +15,14 @@ def kareal(x):
 kareal2 = lambda x: x * x
 
 result = df
-result = df["Column2"].unique()
-result = df["Column2"].nunique()
-result = df["Column2"].value_counts()
-result = df["Column1"] * 2
+result = df["Column2"].unique()     # veri tekrarlanmaz
+result = df["Column2"].nunique()    # tekil değer sayısı
+result = df["Column2"].value_counts()    # her bir elemanın kaç kere tekrarlandığı
+result = df["Column1"] * 2    
 result = df["Column1"].apply(kareal)
 result = df["Column1"].apply(kareal2)
 result = df["Column1"].apply(lambda x: x * x)
-df["Column4"] = df["Column3"].apply(len)
+df["Column4"] = df["Column3"].apply(len)  # her bir elemanın karakter sayısı
 
 result = df.columns
 result = len(df.columns)
@@ -32,7 +32,7 @@ result = df.info
 
 result = df.sort_values("Column2")
 result = df.sort_values("Column3")
-result = df.sort_values("Column3", ascending = False)
+result = df.sort_values("Column3", ascending = False)   # azalan şkilde sıralar
 
 data = {
     "Ay": ["Mayıs","Haziran","Nisan","Mayıs","Haziran","Nisan","Mayıs","Haziran","Nisan"],

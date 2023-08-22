@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-""" Örnek 1 ***
+""" Örnek 1 ***    
 x = [1,2,3,4]
 y = [1,4,9,16]
 

@@ -5,8 +5,8 @@ import numpy as np
 x = [1,2,3,4]
 y = [1,4,9,16]
 
-plt.plot(x,y,"o--r")
-plt.axis([0,6,0,20])
+plt.plot(x,y,"o--r")    # 0=>marker --=> çizgili r=>red
+plt.axis([0,6,0,20])    # x ve y nin başlangıç değerleri
 
 plt.title("Grafik Başlığı")
 plt.xlabel("x label")
@@ -25,14 +25,14 @@ plt.xlabel("x label")
 plt.ylabel("y label")
 
 plt.title("simple plot")
-plt.legend()
+plt.legend()   #label değerlerini ekranda gösterir
 
 plt.show() 
 
 
 """ Örnek 3 ***
 x = np.linspace(0,2,100)
-fig,axs =  plt.subplots(3)
+fig,axs =  plt.subplots(3)   # 3 adet axes alanı oluşturur
 
 axs[0].plot(x, x, color="red")
 axs[0].set_title("linear")
@@ -43,7 +43,7 @@ axs[1].set_title("quadratic")
 axs[2].plot(x, x**3, color="yellow")
 axs[2].set_title("cubic")
 
-plt.tight_layout()
+plt.tight_layout()   # yazıların birbirine girmesini engeller
 
 plt.show() 
 
@@ -52,7 +52,7 @@ plt.show()
 """ Örnek 4 ***
 
 x = np.linspace(0,2,100)
-fig,axs =  plt.subplots(2,2)
+fig,axs =  plt.subplots(2,2)    # 2 satır,2 column
 fig.suptitle("grafik başlığı")
 
 axs[0,0].plot(x, x, color="red")

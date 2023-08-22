@@ -20,7 +20,7 @@ result = df["dislikes"].mean()
 result = df.head(50)[["title","likes","dislikes"]]
 
 # 7- En çok görüntülenen video hangisidir ?
-result = df[df["views"].max() == df["views"]]["title"].iloc[0]
+result = df[df["views"].max() == df["views"]]["title"].iloc[0]  # sadece ismi alır
 
 # 8- En düşük görüntülenen video hangisidir?
 result = df[df["views"].min() == df["views"]]["title"].iloc[0]

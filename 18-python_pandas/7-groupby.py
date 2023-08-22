@@ -26,17 +26,17 @@ result = df.groupby(["Departman","Semt"]).groups
 
 result = df.groupby("Semt").get_group("Kadıköy")
 result = df.groupby("Departman").get_group("Muhasebe")
-result = df.groupby("Departman").sum()
-result = df.groupby("Departman").mean()
+result = df.groupby("Departman").sum()      # toplam
+result = df.groupby("Departman").mean()     # ortalama
 result = df.groupby("Departman")["Maaş"].mean()
 result = df.groupby("Semt")["Yaş"].mean()
 result = df.groupby("Semt")["Maaş"].mean()
-result = df.groupby("Semt")["Çalışan"].count()
-result = df.groupby("Departman")["Yaş"].max()
-result = df.groupby("Departman")["Maaş"].min()
-result = df.groupby("Departman")["Maaş"].max()
+result = df.groupby("Semt")["Çalışan"].count()    # gruptaki kişi sayısı
+result = df.groupby("Departman")["Yaş"].max()     # maximum
+result = df.groupby("Departman")["Maaş"].min()    # minimum
+result = df.groupby("Departman")["Maaş"].max()    
 result = df.groupby("Departman")["Maaş"].max()["Muhasebe"]
-result = df.groupby("Departman").agg(np.mean)
+result = df.groupby("Departman").agg(np.mean)     # departmaan göre grup aldı her grunun ortalamalarını verir
 result = df.groupby("Departman")["Maaş"].agg([np.sum,np.mean,np.max,np.min]).loc["Muhasebe"]
 
 print(result)

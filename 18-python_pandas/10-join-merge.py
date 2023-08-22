@@ -18,10 +18,10 @@ import pandas as pd
 # print(df_customers)
 # print(df_orders)
 
-# result = pd.merge(df_customers,df_orders,how="inner")
-# result = pd.merge(df_customers,df_orders,how="left")
-# result = pd.merge(df_customers,df_orders,how="right")
-# result = pd.merge(df_customers,df_orders,how="outer")
+# result = pd.merge(df_customers,df_orders,how="inner")   # ortak olan id
+# result = pd.merge(df_customers,df_orders,how="left")    # prtak ve soldakileri getir
+# result = pd.merge(df_customers,df_orders,how="right")   # ortak ve sağdakileri getir
+# result = pd.merge(df_customers,df_orders,how="outer")   # tüm kayıtlar getirilir
 
 customersA = {
     'CustomerId': [1,2,3,4],
@@ -38,8 +38,8 @@ customersB = {
 df_customersA = pd.DataFrame(customersA, columns = ["CustomerId","FirstName","LastName"])
 df_customersB = pd.DataFrame(customersB, columns = ["CustomerId","FirstName","LastName"])
 
-result = pd.concat([df_customersA,df_customersB])
-result = pd.concat([df_customersA,df_customersB],axis=1)
-
+result = pd.concat([df_customersA,df_customersB])    #Birleştirme
+result = pd.concat([df_customersA,df_customersB],axis=1)  
+# Birleştirme column bazlı yapılır. Yan yana gelir
 
 print(result)

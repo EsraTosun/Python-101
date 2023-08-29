@@ -41,7 +41,7 @@ def insertProducts(list):
     sql = "INSERT INTO Products(name,price,imageUrl,description) VALUES (%s,%s,%s,%s)" 
     values = list
 
-    cursor.executemany(sql,values)
+    cursor.executemany(sql,values)  #Çoğul bir ekleme yaptığımızı burda söylüyoruz
 
     try:
         connection.commit()   

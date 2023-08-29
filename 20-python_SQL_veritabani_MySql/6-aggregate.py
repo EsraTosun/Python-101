@@ -95,6 +95,31 @@ def getProductById(id):
 
     result = cursor.fetchone()    
 
-    print(f'id: {result["id"]} name: {result["name"]} price: {result["price"]}')
+    print(f'id: {result[0]} name: {result[1]} price: {result[2]}')
 
-getProducts()
+def getProductInfo():
+    connection = pymysql.connect(
+    host = "localhost", # 192.23.45.56
+    user = "root",
+    password = "mysql1234",
+    db = "node-app",
+    charset='utf8mb4',
+    cursorclass=pymysql.cursors.DictCursor
+    ) 
+    cursor = connection.cursor()
+
+    # sql = "Select COUNT(*) from Products"
+    # sql = "Select AVG(Price) from Products"
+    # sql = "Select SUM(Price) from Products"
+    # sql = "Select MIN(Price) from Products"
+    # sql = "Select MAX(Price) from Products"
+    sql = "Select name,price from products Where price = (Select MAX(price) from products)"
+
+    cursor.execute(sql)
+
+    result = cursor.fetchone()    
+
+    print(f'result: {result["name"]} {result["price"]}')
+
+
+getProductInfo()

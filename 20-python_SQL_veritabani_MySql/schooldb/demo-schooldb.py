@@ -141,7 +141,7 @@ class Student:
     
     @staticmethod
     def updateStudents(liste):
-        sql = "update student set studentnumber=%s,name=%s,surname=%s,birthdate=%s,gender=%s where id=%s"
+        sql = "update student set Studentnumber=%s,Name=%s,Surname=%s,Birthdate=%s,Gender=%s where Id=%s"
         values = []
         order = [1,2,3,4,5,0]
 
@@ -159,8 +159,8 @@ class Student:
 
     @staticmethod
     def getStudentsGender(gender):
-        sql = "select * from student where gender=%s"
-        value = (gender,)
+        sql = "Select * from student where Gender=%s"
+        value = (gender)
 
         Student.mycursor.execute(sql,value)
 
@@ -177,6 +177,18 @@ class Student:
 
 # student.updateStudent()
 
+""""
+ogrenciler = [
+    ("301","Ahmet","Yılmaz",datetime(2005, 5, 17),"E"),
+    ("302","Ali","Can",datetime(2005, 6, 17),"E"),
+    ("303","Canan","Tan",datetime(2005, 7, 7),"K"),
+    ("304","Ayşe","Taner",datetime(2005, 9, 23),"K"),
+    ("305","Bahadır","Toksöz",datetime(2004, 7, 27),"E"),
+    ("306","Ali","Cenk",datetime(2003, 8, 25),"E")
+]
+
+Student.saveStudents(ogrenciler)
+"""
 
 students = Student.getStudentsGender('E')
 print(students)

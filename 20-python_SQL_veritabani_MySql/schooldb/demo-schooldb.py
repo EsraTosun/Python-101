@@ -45,7 +45,7 @@ Student.saveStudents(ogrenciler)
 #   a- id' e göre aldığınız bir öğrencinin bilgilerini güncelleyiniz.
 #   b- cinsiyet' e göre aldığınız bir öğrencinin bilgilerini güncelleyiniz.
 
-import mysql.connector
+import pymysql.cursors
 from datetime import datetime
 from connection import connection
 
@@ -72,7 +72,7 @@ class Student:
         try:
             Student.connection.commit()
             print(f'{Student.mycursor.rowcount} tane kayıt eklendi.')
-        except mysql.connector.Error as err:
+        except pymysql.connector.Error as err:
             print('hata:', err)
         finally:
             Student.connection.close()
@@ -86,7 +86,7 @@ class Student:
         try:
             Student.connection.commit()
             print(f'{Student.mycursor.rowcount} tane kayıt eklendi.')
-        except mysql.connector.Error as err:
+        except pymysql.connector.Error as err:
             print('hata:', err)
         finally:
             Student.connection.close()
@@ -110,7 +110,7 @@ class Student:
             for result in results:
                 print(f'{result}')
 
-        except mysql.connector.Error as err:
+        except pymysql.connector.Error as err:
             print('hata', err)
         finally:
             Student.connection.close()
@@ -125,7 +125,7 @@ class Student:
         try:
             obj = Student.mycursor.fetchone()
             return Student(obj[0],obj[1],obj[2],obj[3],obj[4],obj[5])
-        except mysql.connector.Error as err:
+        except pymysql.connector.Error as err:
             print('Error', err)        
     
     def updateStudent(self):
@@ -136,7 +136,7 @@ class Student:
         try:
             Student.connection.commit()
             print(f'{Student.mycursor.rowcount} tane kayıt güncellendi')
-        except mysql.connector.Error as err:
+        except pymysql.connector.Error as err:
             print('Hata:',err)
     
     @staticmethod
@@ -154,7 +154,7 @@ class Student:
         try:
             Student.connection.commit()
             print(f'{Student.mycursor.rowcount} tane kayıt güncellendi')
-        except mysql.connector.Error as err:
+        except pymysql.connector.Error as err:
             print('Hata:',err)
 
     @staticmethod
@@ -166,7 +166,7 @@ class Student:
 
         try:
             return Student.mycursor.fetchall()
-        except mysql.connector.Error as err:
+        except pymysql.connector.Error as err:
             print('Error', err)    
         
 

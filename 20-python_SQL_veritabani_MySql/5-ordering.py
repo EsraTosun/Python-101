@@ -8,7 +8,7 @@ def insertProduct(name, price, imageUrl, description):
     db = "node-app",
     charset='utf8mb4',
     cursorclass=pymysql.cursors.DictCursor
-    )    
+    )  
     cursor = connection.cursor()
 
     sql = "INSERT INTO Products(name,price,imageUrl,description) VALUES (%s,%s,%s,%s)" 
@@ -63,12 +63,18 @@ def getProducts():
     )  
     cursor = connection.cursor()
 
-    cursor.execute("Select * From Products")
+    cursor.execute("Select * From Products Order By name, price")
 
-    result = cursor.fetchall()    
-
-    for product in result:
-        print(f'id: {product[0]} name: {product[1]} price: {product[2]}')
+    try:
+        result = cursor.fetchall()    
+        for product in result:
+            print(f'id: {product["id"]} name: {product["name"]} price: {product["price"]}')
+    except pymysql.connect.Error as err:
+        print('hata:', err)
+    finally:
+        connection.close()
+        print('database bağlantısı kapandı.')
+    
 
 def getProductById(id):
     connection = pymysql.connect(
@@ -90,5 +96,4 @@ def getProductById(id):
 
     print(f'id: {result["id"]} name: {result["name"]} price: {result["price"]}')
 
-
-getProductById(input("id:"))
+getProducts()

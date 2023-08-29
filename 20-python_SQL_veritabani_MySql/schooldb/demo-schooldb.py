@@ -101,7 +101,7 @@ class Student:
         # sql = "select * from student where YEAR(birthdate) = 2005 and name = 'Ali'"
         # sql = "select * from student where name like '%an%' or surname like '%an%'"
         # sql = "select COUNT(id) from student where gender='E'"
-        # sql = "select name,surname from student where gender='K' order by name,surname"
+        sql = "select name,surname from student where gender='K' order by name,surname"
 
         Student.mycursor.execute(sql)
 

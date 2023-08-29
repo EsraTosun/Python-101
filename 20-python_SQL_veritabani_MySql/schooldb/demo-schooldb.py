@@ -118,14 +118,15 @@ class Student:
     @staticmethod
     def getStudentById(id):
         sql = "select * from student where id=%s"
-        value = (id,)
+        value = (id)
 
         Student.mycursor.execute(sql,value)
 
         try:
             obj = Student.mycursor.fetchone()
-            return Student(obj[0],obj[1],obj[2],obj[3],obj[4],obj[5])
-        except pymysql.connector.Error as err:
+            # obj["Id"],obj["StudentNumber"],obj["Name"],obj["Surname"],obj["Birthdate"],obj["Gender"]
+            return Student(obj["Id"],obj["StudentNumber"],obj["Name"],obj["Surname"],obj["Birthdate"],obj["Gender"])
+        except pymysql.connect.Error as err:
             print('Error', err)        
     
     def updateStudent(self):
@@ -141,7 +142,7 @@ class Student:
     
     @staticmethod
     def updateStudents(liste):
-        sql = "update student set Studentnumber=%s,Name=%s,Surname=%s,Birthdate=%s,Gender=%s where Id=%s"
+        sql = "update student set StudentNumber=%s,Name=%s,Surname=%s,Birthdate=%s,Gender=%s where Id=%s"
         values = []
         order = [1,2,3,4,5,0]
 
@@ -170,7 +171,7 @@ class Student:
             print('Error', err)    
         
 
-# student = Student.getStudentById(8)
+# student = Student.getStudentById(4)
 
 # student.name = 'Çınar'
 # student.surname = 'Turan'
@@ -195,7 +196,7 @@ print(students)
 
 liste = []
 for std in students:
-    std = list(std)
+    std = list(std.values())
     std[2] = 'Mr ' + std[2]
     liste.append(std)
 

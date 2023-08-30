@@ -85,6 +85,5 @@ class App:
     
 
 
-
 app = App()     
 app.initApp()

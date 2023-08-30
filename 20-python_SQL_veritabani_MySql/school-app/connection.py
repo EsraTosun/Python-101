@@ -1,8 +1,10 @@
-import mysql.connector
+import pymysql.cursors
 
-connection = mysql.connector.connect(
+connection = pymysql.connect(
     host = "localhost",
     user = "root",
     password = "mysql1234",
-    database = "schooldb"
+    db = "schooldb",
+    charset='utf8mb4',
+    cursorclass=pymysql.cursors.DictCursor
 )

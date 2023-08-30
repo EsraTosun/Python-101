@@ -1,4 +1,4 @@
-import mysql.connector
+import pymysql.cursors
 from datetime import datetime
 from connection import connection
 from Student import Student
@@ -17,7 +17,7 @@ class DbManager:
         try:
             obj = self.cursor.fetchone()
             return Student.CreateStudent(obj)
-        except mysql.connector.Error as err:
+        except pymysql.connect.Error as err:
             print('Error:', err)
 
     def deleteStudent(self,studentid):
@@ -28,7 +28,7 @@ class DbManager:
         try:
             self.connection.commit()
             print(f'{self.cursor.rowcount} tane kayıt eklendi.')
-        except mysql.connector.Error as err:
+        except pymysql.connect.Error as err:
             print('hata:', err)
 
     def getClasses(self):
@@ -37,7 +37,7 @@ class DbManager:
         try:
             obj = self.cursor.fetchall()
             return Class.CreateClass(obj)
-        except mysql.connector.Error as err:
+        except pymysql.connect.Error as err:
             print('Error:', err)
 
     def getStudentsByClassId(self,classid):
@@ -47,7 +47,7 @@ class DbManager:
         try:
             obj = self.cursor.fetchall()
             return Student.CreateStudent(obj)
-        except mysql.connector.Error as err:
+        except pymysql.connect.Error as err:
             print('Error:', err)
 
     def addorEditStudent(self,student: Student):
@@ -61,7 +61,7 @@ class DbManager:
         try:
             self.connection.commit()
             print(f'{self.cursor.rowcount} tane kayıt eklendi.')
-        except mysql.connector.Error as err:
+        except pymysql.connect.Error as err:
             print('hata:', err)
 
     def editStudent(self, student: Student):
@@ -72,7 +72,7 @@ class DbManager:
         try:
             self.connection.commit()
             print(f'{self.cursor.rowcount} tane kayıt güncellendi.')
-        except mysql.connector.Error as err:
+        except pymysql.connect.Error as err:
             print('hata:', err) 
 
 
